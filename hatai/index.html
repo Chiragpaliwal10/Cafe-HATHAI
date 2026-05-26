@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hathai Udaipur | Conversations. Culture. Coffee.</title>
+  <meta name="description" content="A premium modern café in Udaipur inspired by Rajasthan culture mixed with minimal contemporary aesthetics. Come for coffee, rooftop conversations, and live music.">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Grain Overlay Effect -->
+  <div class="grain-overlay"></div>
+
+  <!-- Custom Cursor Glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Ambient Café Audio -->
+  <audio id="ambientAudio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
+
+  <!-- Elegant Loading Screen -->
+  <div class="loader-screen" id="loaderScreen">
+    <div class="loader-logo-container">
+      <div class="loader-circle"></div>
+      <img src="assets/logo.jpg" alt="Hathai Logo" class="loader-logo">
+    </div>
+    <div class="loader-text">Hathai Udaipur</div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <a href="#" class="nav-logo-container">
+      <div class="nav-logo-circle">
+        <img src="assets/logo.jpg" alt="Hathai Logo">
+      </div>
+      <span class="nav-brand-name text-serif">Hathai</span>
+    </a>
+    
+    <div class="nav-actions">
+      <!-- Ambient Audio Toggle -->
+      <button class="audio-toggle-btn" id="audioToggle" title="Toggle Ambient Café Music">
+        <div class="audio-icon-waves">
+          <div class="audio-wave"></div>
+          <div class="audio-wave"></div>
+          <div class="audio-wave"></div>
+          <div class="audio-wave"></div>
+        </div>
+      </button>
+      
+      <button class="btn btn-secondary btn-reserve-nav" onclick="openReservationModal()">Book a Table</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="assets/rooftop.jpg" alt="Hathai Udaipur Rooftop View">
+    </div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <div class="hero-logo-script">Hathai</div>
+      <h1 class="hero-title">Udaipur</h1>
+      <p class="hero-tagline">Conversations. Culture. Coffee.</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn btn-light">Explore Menu</a>
+        <button class="btn btn-primary" onclick="openReservationModal()">Reserve a Table</button>
+      </div>
+    </div>
+    
+    <a href="#about" class="scroll-indicator">
+      <span class="scroll-text">Scroll Down</span>
+      <div class="scroll-line"></div>
+    </a>
+  </section>
+
+  <!-- Today's Mood Quote Banner -->
+  <div class="mood-floating-bar">
+    <div class="mood-track">
+      <div class="mood-item"><span class="mood-bullet"></span>Today's Mood: "Slow brew, soft Sufi chords, and the sun sinking into Pichola."</div>
+      <div class="mood-item"><span class="mood-bullet"></span>Today's Mood: "Slow brew, soft Sufi chords, and the sun sinking into Pichola."</div>
+      <div class="mood-item"><span class="mood-bullet"></span>Today's Mood: "Slow brew, soft Sufi chords, and the sun sinking into Pichola."</div>
+      <div class="mood-item"><span class="mood-bullet"></span>Today's Mood: "Slow brew, soft Sufi chords, and the sun sinking into Pichola."</div>
+    </div>
+  </div>
+
+  <!-- About & Storytelling Section -->
+  <section class="section about-section reveal-on-scroll" id="about">
+    <div class="about-split">
+      <!-- Left: Image collage -->
+      <div class="about-collage">
+        <div class="collage-img collage-main">
+          <img src="assets/food.png" alt="Aesthetic Tapas at Hathai">
+        </div>
+        <div class="collage-img collage-secondary">
+          <img src="assets/coffee.png" alt="Pour over specialty coffee">
+        </div>
+        <div class="collage-badge">
+          <span class="collage-badge-text">ESTD</span>
+          <span class="collage-badge-year">2024</span>
+        </div>
+      </div>
+      
+      <!-- Right: Storytelling -->
+      <div class="about-content">
+        <span class="section-subtitle">Our Roots</span>
+        <h2 class="section-title text-serif">Where Tradition Meets the Contemporary Adda</h2>
+        <p class="about-p">
+          In Rajasthan, <strong>“Hathai”</strong> is more than just a word—it is an age-old tradition. It refers to the informal daily gatherings where people sit together under the shade of a village tree or on a courtyard porch to share stories, discuss local gossip, recite poetry, and bond over cups of warm chai.
+        </p>
+        <p class="about-p highlight">
+          "We created Hathai to revive this beautiful essence of community, repackaged for the modern creative soul."
+        </p>
+        <p class="about-p">
+          Set against the breathtaking backdrop of Udaipur's majestic lake palaces and rolling Aravalli hills, Hathai Udaipur is a sanctuary for slow living. Whether you are here to work on your next script, lose yourself in live acoustic melodies, or engage in deep conversations under a sunset sky, you are home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curve Divider transition -->
+  <div class="curve-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+      <path d="M0,0 C480,80 960,80 1440,0 L1440,60 L0,60 Z"></path>
+    </svg>
+  </div>
+
+  <!-- Signature Experiences Section -->
+  <section class="experience-section reveal-on-scroll" id="experiences">
+    <div class="section-header">
+      <span class="section-subtitle">Curated For You</span>
+      <h2 class="section-title text-serif">The Signature Hathai Elements</h2>
+    </div>
+    
+    <div class="experience-grid reveal-stagger-container">
+      <!-- Card 1: Rooftop Vibes -->
+      <div class="experience-card reveal-stagger-item">
+        <span class="exp-num">01</span>
+        <h3 class="exp-title">Rooftop Vibes</h3>
+        <p class="exp-desc">Sit above the city, feel the lake breeze, and watch the sun dip behind the ancient palaces of Udaipur.</p>
+        <span class="exp-icon">lake</span>
+      </div>
+      
+      <!-- Card 2: Live Music Nights -->
+      <div class="experience-card reveal-stagger-item">
+        <span class="exp-num">02</span>
+        <h3 class="exp-title">Live Music</h3>
+        <p class="exp-desc">Soulful unplugged acoustic sessions, local indie artists, and raw Sufi nights under a starry sky.</p>
+        <span class="exp-icon">tune</span>
+      </div>
+      
+      <!-- Card 3: Artisan Coffee -->
+      <div class="experience-card reveal-stagger-item">
+        <span class="exp-num">03</span>
+        <h3 class="exp-title">Artisan Coffee</h3>
+        <p class="exp-desc">Carefully sourced Indian beans, custom roasted and hand-brewed with modern extraction techniques.</p>
+        <span class="exp-icon">pour</span>
+      </div>
+      
+      <!-- Card 4: Sunset Conversations -->
+      <div class="experience-card reveal-stagger-item">
+        <span class="exp-num">04</span>
+        <h3 class="exp-title">Sunset Talks</h3>
+        <p class="exp-desc">The golden hour in Udaipur inspires quiet reflections, poetic thoughts, and cozy shared laughs.</p>
+        <span class="exp-icon">gold</span>
+      </div>
+      
+      <!-- Card 5: Curated Food -->
+      <div class="experience-card reveal-stagger-item">
+        <span class="exp-num">05</span>
+        <h3 class="exp-title">Curated Food</h3>
+        <p class="exp-desc">A beautiful fusion menu mixing classic local ingredients with contemporary global cafe favorites.</p>
+        <span class="exp-icon">taste</span>
+      </div>
+      
+      <!-- Card 6: Creative Gatherings -->
+      <div class="experience-card reveal-stagger-item">
+        <span class="exp-num">06</span>
+        <h3 class="exp-title">Creative Adda</h3>
+        <p class="exp-desc">A welcoming canvas for weekend art workshops, open mics, poetry reading, and creative meetups.</p>
+        <span class="exp-icon">adda</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Rooftop Day/Night Section -->
+  <section class="rooftop-interactive reveal-on-scroll" id="interactive-rooftop">
+    <div class="section-header">
+      <span class="section-subtitle">Experience the Shift</span>
+      <h2 class="section-title text-serif">Udaipur Golden Hour to Starry Night</h2>
+    </div>
+    
+    <div class="interactive-container" id="sliderContainer">
+      <!-- Day Pane -->
+      <div class="rooftop-pane pane-day"></div>
+      
+      <!-- Night Pane (revealed by slider) -->
+      <div class="rooftop-pane pane-night" id="nightPane">
+        <div class="night-lights-overlay">
+          <!-- Twinkling virtual fairy lights -->
+          <div class="fairy-light-glow"></div>
+          <div class="fairy-light-glow"></div>
+          <div class="fairy-light-glow"></div>
+          <div class="fairy-light-glow"></div>
+          <div class="fairy-light-glow"></div>
+          <div class="fairy-light-glow"></div>
+          <div class="fairy-light-glow"></div>
+          <div class="fairy-light-glow"></div>
+          <div class="fairy-light-glow"></div>
+        </div>
+      </div>
+      
+      <span class="interactive-label label-day">Afternoon Sun</span>
+      <span class="interactive-label label-night">Rooftop Night</span>
+      
+      <!-- Split slider control -->
+      <div class="slider-handle-visual" id="sliderHandle">
+        <div class="slider-button">
+          <i class="fa-solid fa-arrows-left-right"></i>
+        </div>
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider-control" id="sliderRange">
+    </div>
+    
+    <p class="interactive-instruction">Drag the slider to illuminate the rooftop strings and feel the Udaipur twilight</p>
+  </section>
+
+  <!-- Menu Preview Section -->
+  <section class="menu-section reveal-on-scroll" id="menu">
+    <div class="section-header">
+      <span class="section-subtitle">Taste Hathai</span>
+      <h2 class="section-title text-serif">A Culinary Preview</h2>
+    </div>
+    
+    <!-- Menu categories tabs -->
+    <div class="menu-tabs">
+      <button class="menu-tab-btn active" onclick="switchMenuTab('coffee')">Coffee</button>
+      <button class="menu-tab-btn" onclick="switchMenuTab('mocktails')">Mocktails</button>
+      <button class="menu-tab-btn" onclick="switchMenuTab('pizza')">Pizza</button>
+      <button class="menu-tab-btn" onclick="switchMenuTab('pasta')">Pasta</button>
+      <button class="menu-tab-btn" onclick="switchMenuTab('north-indian')">North Indian</button>
+      <button class="menu-tab-btn" onclick="switchMenuTab('desserts')">Desserts</button>
+    </div>
+    
+    <!-- Menu items showcase -->
+    <div class="menu-container">
+      
+      <!-- Tab 1: Coffee -->
+      <div class="menu-pane active" id="tab-coffee">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Rose Cardamom Latte <span class="menu-tag-badge">Signature</span></span>
+            <span class="menu-item-price">₹220</span>
+          </div>
+          <p class="menu-item-desc">Espresso combined with steamed milk, organic edible rose extract, and a pinch of traditional Rajasthani cardamom.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Syphon Pour-over</span>
+            <span class="menu-item-price">₹260</span>
+          </div>
+          <p class="menu-item-desc">A visually theater-like theatrical brew bringing out a clean, tea-like body and delicate floral notes.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Orange Cold Brew</span>
+            <span class="menu-item-price">₹240</span>
+          </div>
+          <p class="menu-item-desc">18-hour slow steeped cold brew poured over fresh orange juice tonic and structural ice.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Classic Flat White</span>
+            <span class="menu-item-price">₹180</span>
+          </div>
+          <p class="menu-item-desc">Double ristretto with micro-foamed milk showing clean, silky latte art.</p>
+        </div>
+      </div>
+      
+      <!-- Tab 2: Mocktails -->
+      <div class="menu-pane" id="tab-mocktails">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Pichola Sunset <span class="menu-tag-badge">Popular</span></span>
+            <span class="menu-item-price">₹250</span>
+          </div>
+          <p class="menu-item-desc">Layered pomegranate syrup, pressed orange, lime juice, ginger beer, and refreshing fresh mint.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Aravalli Herb Tonic</span>
+            <span class="menu-item-price">₹230</span>
+          </div>
+          <p class="menu-item-desc">Cucumber, rosemary syrup, elderflower extract, and tonic water. Incredibly crisp.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Spiced Jamun Mojito</span>
+            <span class="menu-item-price">₹240</span>
+          </div>
+          <p class="menu-item-desc">Fresh local black plum pulp muddled with rock salt, mint leaves, white cane sugar, and club soda.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Vedic Ginger Cooler</span>
+            <span class="menu-item-price">₹210</span>
+          </div>
+          <p class="menu-item-desc">Raw honey, freshly squeezed ginger juice, lemon zest, holy basil (Tulsi) leaves, and sparkling water.</p>
+        </div>
+      </div>
+      
+      <!-- Tab 3: Pizza -->
+      <div class="menu-pane" id="tab-pizza">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Laal Maas Flatbread <span class="menu-tag-badge">Fusion</span></span>
+            <span class="menu-item-price">₹480</span>
+          </div>
+          <p class="menu-item-desc">Sourdough base, smoked mozzarella, slow-cooked pulled spiced lamb shoulder, red onions, coriander pesto.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Truffle Wild Mushroom</span>
+            <span class="menu-item-price">₹450</span>
+          </div>
+          <p class="menu-item-desc">White base with porcini and button mushrooms, rich mozzarella, fresh arugula, and premium white truffle oil spray.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Classic Margherita Extra</span>
+            <span class="menu-item-price">₹380</span>
+          </div>
+          <p class="menu-item-desc">San Marzano tomato base, creamy buffalo mozzarella, extra virgin olive oil, and fresh garden basil.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Garden Olive & Feta</span>
+            <span class="menu-item-price">₹410</span>
+          </div>
+          <p class="menu-item-desc">Red sauce base, roasted bell peppers, marinated kalamata olives, capers, crumbled premium feta cheese.</p>
+        </div>
+      </div>
+      
+      <!-- Tab 4: Pasta -->
+      <div class="menu-pane" id="tab-pasta">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Pistachio Pesto Tagliatelle</span>
+            <span class="menu-item-price">₹420</span>
+          </div>
+          <p class="menu-item-desc">Handmade flat ribbons tossed in creamy Sicilian pistachio, basil, parmigiano, and a drizzle of lemon zest oil.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Spaghetti Cacio e Pepe</span>
+            <span class="menu-item-price">₹390</span>
+          </div>
+          <p class="menu-item-desc">Simple yet luxurious Roman classic with toasted black peppercorns and aged pecorino romano cheese cream.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Baked Truffle Mac & Cheese</span>
+            <span class="menu-item-price">₹440</span>
+          </div>
+          <p class="menu-item-desc">Gourmet elbow macaroni baked in a five-cheese sauce crust, infused with white truffle paste and breadcrumbs.</p>
+        </div>
+      </div>
+      
+      <!-- Tab 5: North Indian -->
+      <div class="menu-pane" id="tab-north-indian">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Hathai Dal Makhani Pot <span class="menu-tag-badge">Must Try</span></span>
+            <span class="menu-item-price">₹360</span>
+          </div>
+          <p class="menu-item-desc">24-hour slow-cooked black lentils prepared on traditional low coal embers with hand-churned white butter.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Paneer Lababdar Slider</span>
+            <span class="menu-item-price">₹310</span>
+          </div>
+          <p class="menu-item-desc">Creamy, rich cashew tomato-onion paneer bhurji stuffed inside soft, buttery charcoal-baked pav buns.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Mini Dal Baati Platter</span>
+            <span class="menu-item-price">₹380</span>
+          </div>
+          <p class="menu-item-desc">A classic Rajasthani taste: 3 woodfired wheat baatis soaked in organic cow ghee, spicy garlic chutney, and yellow dal.</p>
+        </div>
+      </div>
+      
+      <!-- Tab 6: Desserts -->
+      <div class="menu-pane" id="tab-desserts">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Saffron Rabdi Cheesecake <span class="menu-tag-badge">Chef Special</span></span>
+            <span class="menu-item-price">₹280</span>
+          </div>
+          <p class="menu-item-desc">New York style baked cheesecake layered with thick reduction of local saffron sweet rabdi and gold foil.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Earthy Brownie Bowl</span>
+            <span class="menu-item-price">₹220</span>
+          </div>
+          <p class="menu-item-desc">Warm fudge dark chocolate brownie served with vanilla bean gelato and a warm chocolate fudge drizzle.</p>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">Rose Kulfi Parfait</span>
+            <span class="menu-item-price">₹240</span>
+          </div>
+          <p class="menu-item-desc">Traditional condensed milk ice cream flavored with rosewater, layered with transparent falooda noodles and dry pistachios.</p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Masonry Gallery Section -->
+  <section class="gallery-section reveal-on-scroll" id="gallery">
+    <div class="section-header">
+      <span class="section-subtitle">Captured Stories</span>
+      <h2 class="section-title text-serif">Pinterest Moments</h2>
+    </div>
+    
+    <div class="gallery-grid">
+      <!-- 1. Rooftop Scene (Big square/landscape) -->
+      <div class="gallery-item gallery-span-big">
+        <img src="assets/rooftop.jpg" alt="Rooftop sunset overlooking Udaipur Lake">
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">Rooftop Evenings</h4>
+          <span class="gallery-tag">#goldenhour</span>
+        </div>
+      </div>
+      
+      <!-- 2. Coffee Brew (Tall vertical) -->
+      <div class="gallery-item gallery-span-v2">
+        <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?q=80&w=600&auto=format&fit=crop" alt="Artisan coffee drip close-up">
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">Pour Over Ritual</h4>
+          <span class="gallery-tag">#artisancoffee</span>
+        </div>
+      </div>
+      
+      <!-- 3. Mocktail (Standard) -->
+      <div class="gallery-item">
+        <img src="assets/mocktail.png" alt="Aesthetic sunset mocktail glass">
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">Summer Spritz</h4>
+          <span class="gallery-tag">#mocktails</span>
+        </div>
+      </div>
+      
+      <!-- 4. Café Interior (Standard) -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop" alt="Minimal warm cafe design">
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">Aesthetic Spaces</h4>
+          <span class="gallery-tag">#interiordesign</span>
+        </div>
+      </div>
+      
+      <!-- 5. Candid Moments (Horizontal) -->
+      <div class="gallery-item gallery-span-h2">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" alt="People laughing and enjoying food at cafe">
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">Warm Conversations</h4>
+          <span class="gallery-tag">#slowliving</span>
+        </div>
+      </div>
+      
+      <!-- 6. Night ambience (Standard) -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=600&auto=format&fit=crop" alt="Warm fairy lights strings outside">
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">Under the Lights</h4>
+          <span class="gallery-tag">#udaipurnights</span>
+        </div>
+      </div>
+      
+      <!-- 7. Food plates (Standard) -->
+      <div class="gallery-item">
+        <img src="assets/food.png" alt="Gourmet platings on table">
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">Signature Tapas</h4>
+          <span class="gallery-tag">#creativebites</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="events-section reveal-on-scroll" id="events">
+    <div class="section-header">
+      <span class="section-subtitle">Live at Hathai</span>
+      <h2 class="section-title text-serif">Cultural Calendar & Nights</h2>
+    </div>
+    
+    <div class="events-scroller-container">
+      <div class="events-track" id="eventsTrack">
+        <!-- Event 1: Sufi Unplugged -->
+        <div class="event-card">
+          <div class="event-img-container">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop" alt="Acoustic music performance">
+            <span class="event-date-badge">June 06</span>
+          </div>
+          <div class="event-body">
+            <span class="event-label">Live Music</span>
+            <h3 class="event-title">Sufi Unplugged: Sunset Chords</h3>
+            <div class="event-time">
+              <i class="fa-regular fa-clock"></i> 6:00 PM - 9:30 PM
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event 2: Open Mic Poetry -->
+        <div class="event-card">
+          <div class="event-img-container">
+            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600&auto=format&fit=crop" alt="Microphone stand with blurry lights">
+            <span class="event-date-badge">June 12</span>
+          </div>
+          <div class="event-body">
+            <span class="event-label">Open Mic</span>
+            <h3 class="event-title">Lake Reflections: Poetry & Open Mic</h3>
+            <div class="event-time">
+              <i class="fa-regular fa-clock"></i> 7:00 PM - 10:00 PM
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event 3: Clay Pottery Workshop -->
+        <div class="event-card">
+          <div class="event-img-container">
+            <img src="https://images.unsplash.com/photo-1565192647048-f997ded87958?q=80&w=600&auto=format&fit=crop" alt="Hands modeling clay wheel">
+            <span class="event-date-badge">June 20</span>
+          </div>
+          <div class="event-body">
+            <span class="event-label">Workshop</span>
+            <h3 class="event-title">Earthy Hands: Rajasthani Pottery</h3>
+            <div class="event-time">
+              <i class="fa-regular fa-clock"></i> 4:00 PM - 6:30 PM
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event 4: Indie Singer Spotlight -->
+        <div class="event-card">
+          <div class="event-img-container">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=600&auto=format&fit=crop" alt="Singer with acoustic guitar">
+            <span class="event-date-badge">June 27</span>
+          </div>
+          <div class="event-body">
+            <span class="event-label">Indie Spotlight</span>
+            <h3 class="event-title">Acoustic Session: Local Indie Folk</h3>
+            <div class="event-time">
+              <i class="fa-regular fa-clock"></i> 6:30 PM - 9:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Navigation Buttons -->
+      <div class="events-nav-buttons">
+        <button class="events-nav-btn" onclick="scrollEvents('left')" title="Scroll Left">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="events-nav-btn" onclick="scrollEvents('right')" title="Scroll Right">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Integration Section -->
+  <section class="instagram-section reveal-on-scroll">
+    <div class="section-header">
+      <span class="section-subtitle">@hathaiudaipur</span>
+      <h2 class="section-title text-serif">Moments from Hathai</h2>
+    </div>
+    
+    <div class="instagram-grid">
+      <!-- Post 1 -->
+      <a href="#" class="instagram-card">
+        <img src="assets/coffee.png" alt="Aesthetic pour over brew Instagram post">
+        <div class="instagram-hover">
+          <i class="fa-brands fa-instagram instagram-icon"></i>
+          <span class="instagram-likes"><i class="fa-solid fa-heart"></i> 1,204 likes</span>
+        </div>
+      </a>
+      
+      <!-- Post 2 -->
+      <a href="#" class="instagram-card">
+        <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=600&auto=format&fit=crop" alt="Cozy reading space in cafe">
+        <div class="instagram-hover">
+          <i class="fa-brands fa-instagram instagram-icon"></i>
+          <span class="instagram-likes"><i class="fa-solid fa-heart"></i> 842 likes</span>
+        </div>
+      </a>
+      
+      <!-- Post 3 -->
+      <a href="#" class="instagram-card">
+        <img src="assets/rooftop.jpg" alt="Rooftop aesthetic dining at sunset">
+        <div class="instagram-hover">
+          <i class="fa-brands fa-instagram instagram-icon"></i>
+          <span class="instagram-likes"><i class="fa-solid fa-heart"></i> 2,410 likes</span>
+        </div>
+      </a>
+      
+      <!-- Post 4 -->
+      <a href="#" class="instagram-card">
+        <img src="assets/mocktail.png" alt="Colorful drinks with glass reflections">
+        <div class="instagram-hover">
+          <i class="fa-brands fa-instagram instagram-icon"></i>
+          <span class="instagram-likes"><i class="fa-solid fa-heart"></i> 915 likes</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section reveal-on-scroll">
+    <div class="section-header">
+      <span class="section-subtitle">Shared Feelings</span>
+      <h2 class="section-title text-serif">Notes from the Adda</h2>
+    </div>
+    
+    <div class="testimonials-grid">
+      <!-- Card 1 -->
+      <div class="testimonial-card">
+        <div class="quote-icon">“</div>
+        <p class="testimonial-text">
+          Hathai has captured the soul of Udaipur. I sat on the rooftop for three hours writing, watching the colors of Pichola shift. The Rose Cardamom Latte is liquid poetry.
+        </p>
+        <div class="testimonial-author-info">
+          <div class="testimonial-author">Aanya Sharma</div>
+          <div class="testimonial-location">Mumbai</div>
+        </div>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="testimonial-card">
+        <div class="quote-icon">“</div>
+        <p class="testimonial-text">
+          A modern space that respects tradition. The unplugged Sufi music night felt surreal. It has quickly become my absolute favorite spot to escape the noise and meet creatives.
+        </p>
+        <div class="testimonial-author-info">
+          <div class="testimonial-author">Devansh Vyas</div>
+          <div class="testimonial-location">Udaipur</div>
+        </div>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="testimonial-card">
+        <div class="quote-icon">“</div>
+        <p class="testimonial-text">
+          The Day to Night transition at the rooftop is gorgeous. Fantastic coffee roast profile, gorgeous Pinterest aesthetics, and fusion food that actually tastes spectacular.
+        </p>
+        <div class="testimonial-author-info">
+          <div class="testimonial-author">Sarah Jenkins</div>
+          <div class="testimonial-location">London</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation CTA Section -->
+  <section class="reservation-section reveal-on-scroll">
+    <div class="reservation-container">
+      <h2 class="reservation-heading text-serif">Come Sit. Stay Longer.</h2>
+      <p class="reservation-desc">
+        We save a few spots for wanderers, poets, and late-night dreamers. Book your table in advance to guarantee a perfect sunset view on the rooftop.
+      </p>
+      <button class="btn btn-light" onclick="openReservationModal()">Reserve Your Table</button>
+    </div>
+  </section>
+
+  <!-- Reservation Modal Overlay -->
+  <div class="modal-overlay" id="reservationModal">
+    <div class="modal-content" id="modalMainContent">
+      <button class="modal-close-btn" onclick="closeReservationModal()"><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="modal-title text-serif">Reserve a Table</h3>
+      
+      <form class="reservation-form" id="bookingForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <input type="text" id="formName" class="form-input" placeholder=" " required>
+          <label class="form-label" for="formName">Your Full Name</label>
+        </div>
+        
+        <div class="form-group">
+          <input type="email" id="formEmail" class="form-input" placeholder=" " required>
+          <label class="form-label" for="formEmail">Email Address</label>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <input type="tel" id="formPhone" class="form-input" placeholder=" " required>
+            <label class="form-label" for="formPhone">Phone Number</label>
+          </div>
+          
+          <div class="form-group">
+            <input type="number" id="formGuests" class="form-input" min="1" max="15" placeholder=" " required>
+            <label class="form-label" for="formGuests">Guests Count</label>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <input type="date" id="formDate" class="form-input" required>
+            <label class="form-label" for="formDate"></label> <!-- Blank label for date input styling -->
+          </div>
+          
+          <div class="form-group">
+            <input type="time" id="formTime" class="form-input" required>
+            <label class="form-label" for="formTime"></label> <!-- Blank label for time input styling -->
+          </div>
+        </div>
+        
+        <button type="submit" class="submit-btn">Request Reservation</button>
+      </form>
+      
+      <!-- Success Screen (Initially hidden) -->
+      <div class="modal-success-screen" id="successScreen">
+        <i class="fa-regular fa-circle-check success-icon"></i>
+        <h3 class="success-title text-serif">Request Sent</h3>
+        <p class="success-text">
+          Thank you. We have received your reservation request for <span id="successDate"></span> at <span id="successTime"></span> for <span id="successGuests"></span> guests. <br><br> We will email you a confirmation details shortly.
+        </p>
+        <button class="btn btn-primary" onclick="closeReservationModal()" style="margin-top: 1.5rem;">Wonderful</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-grid">
+      <!-- Column 1: Brand Info -->
+      <div class="footer-brand">
+        <div class="footer-logo">Hathai</div>
+        <p class="footer-brand-text">
+          An artistic Rajasthan culture meets contemporary cafe experience in Udaipur. Rooftop sunsets, pour-over specialty coffee, and live indie acoustic notes.
+        </p>
+      </div>
+      
+      <!-- Column 2: Navigation -->
+      <div>
+        <h4 class="footer-title">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#about">Our Roots</a></li>
+          <li><a href="#experiences">Experiences</a></li>
+          <li><a href="#menu">Culinary Preview</a></li>
+          <li><a href="#gallery">Pinterest Stories</a></li>
+          <li><a href="#events">Nights & Live</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 3: Timings -->
+      <div>
+        <h4 class="footer-title">Hours</h4>
+        <div class="footer-contact-item">
+          <strong>Weekdays</strong>
+          11:00 AM – 11:00 PM
+        </div>
+        <div class="footer-contact-item">
+          <strong>Weekends & Sufi Nights</strong>
+          11:00 AM – 12:00 Midnight
+        </div>
+      </div>
+      
+      <!-- Column 4: Contact & Location -->
+      <div>
+        <h4 class="footer-title">Sit with us</h4>
+        <div class="footer-contact-item">
+          <strong>Location</strong>
+          57, Gangaur Ghat Road, Near Pichola Lake, Udaipur, Rajasthan
+        </div>
+        <div class="footer-contact-item">
+          <strong>Reach out</strong>
+          hello@hathaiudaipur.com<br>
+          +91 294 555 4321
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div>&copy; 2026 Hathai Udaipur. All rights reserved.</div>
+      <div class="footer-credit">Crafted by <strong>KAAGAZ</strong></div>
+    </div>
+  </footer>
+
+  <!-- App logic JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
